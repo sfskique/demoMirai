@@ -1,0 +1,24 @@
+@mixin useIcon($icon: "", $color: #000, $fontSize: 14px) {
+    &::before {
+        color: $color;
+        content: $icon;
+        display: inline-block;
+        font-family: 'seticons' !important;
+        font-size: $fontSize;
+        margin-right: 3px;
+        position: relative;
+        vertical-align: middle;
+    }
+}
+
+@mixin img-insteadof-txt ($url: "", $width: 0, $height:0) {
+    background-size: auto 100%;
+    background: url($url) no-repeat center;
+    display: inline-block;
+    height: $height;
+    overflow: hidden;
+    text-indent: 200%;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: $width;
+}

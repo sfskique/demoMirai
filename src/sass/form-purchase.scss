@@ -1,0 +1,405 @@
+@import "set-icons";
+@import "datas";
+@import "mixins";
+
+.form-purchase {
+    color: $grey;
+    margin: -1px;
+    max-width: $maxWidthColLeft;
+    padding: 1px;
+    width: $widthColLeft;
+    @media (max-width: $mediumSize) {
+        margin-top: 30px;
+        max-width: inherit;
+        width: 100%;
+    }
+    @media (min-width: $mediumSize) and (max-width: $largeSize) {
+        max-width: inherit;
+        width: $widthReducedColLeft;
+    }
+     ::-webkit-input-placeholder {
+        color: $grey;
+    }
+     ::-moz-placeholder {
+        color: $grey;
+    }
+     :-ms-input-placeholder {
+        color: $grey;
+    }
+     :-moz-placeholder {
+        color: $grey;
+    }
+    fieldset,
+    .fieldset {
+        margin-right: -16px;
+        &.radio-accordion {
+            margin-right: 0;
+        }
+        .field {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            width: calc(100% - 16px);
+            &.half {
+                margin-right: 14px;
+                width: calc(50% - 16px);
+                @media (max-width: $smallSize), (min-width: $mediumSize) and (max-width: $largeSize) {
+                    margin-right: 0;
+                    width: calc(100% - 16px);
+                }
+            }
+            &.error {
+                &::after {
+                    color: $red;
+                    content: attr(data-error);
+                    font-size: 12px;
+                    margin: 0 16px;
+                    position: absolute;
+                    top: 64px;
+                }
+                input,
+                .mask-input {
+                    box-shadow: 0 0 0 2px $red;
+                }
+                .mask-input {
+                    input {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+        .content-credit-card {
+            .field-account-holder {
+                width: calc(44% - 16px);
+            }
+            .field-card-expiration,
+            .field-card-cvv {
+                margin-left: 12px;
+                width: calc(28% - 16px);
+            }
+            @media (max-width: $smallSize),
+            (min-width: $mediumSize) and (max-width: $largeSize) {
+                .field-account-holder,
+                .field-card-expiration,
+                .field-card-cvv {
+                    margin-left: 0;
+                    width: calc(100% - 16px);
+                }
+            }
+        }
+    }
+    input[type=date],
+    input[type=email],
+    input[type=number],
+    input[type=password],
+    input[type=range],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    .mask-input {
+        background: $white;
+        border-radius: $borderRadius;
+        box-shadow: 0 0 0 1px $lightGrey;
+        display: block;
+        margin: 15px 0;
+        padding: 14px 16px;
+        width: 100%;
+        &:focus {
+            box-shadow: 0 0 0 2px $lightBlue;
+        }
+    }
+    input+.link-question {
+        @include useIcon($icon-answer, $lightGrey, 14px);
+        bottom: 15px;
+        overflow: hidden;
+        position: absolute;
+        right: -5px;
+        text-indent: 200%;
+        top: 15px;
+        white-space: nowrap;
+        width: 30px;
+        &::before {
+            left: -200%;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    }
+    .mask-input {
+        padding: 0;
+        input {
+            background: none;
+            box-shadow: none;
+            display: inline-block;
+            margin: 0 !important;
+            padding-left: 0;
+            padding-right: 0;
+            width: 4em;
+            &:focus {
+                box-shadow: none;
+            }
+            &:first-child {
+                padding-left: 16px;
+            }
+        }
+    }
+    .input-credit-card {
+        @include useIcon($icon-lock, $lightGrey, 14px);
+        position: relative;
+        input {
+            box-sizing: content-box;
+            width: 2.4em;
+        }
+        &::before {
+            margin: 0;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    }
+    .input-card-expiration {
+        position: relative;
+        input {
+            box-sizing: content-box;
+            &:nth-child(1) {
+                width: 1.9em;
+            }
+            &:nth-child(2) {
+                margin-right: -10px;
+                width: 2.8em;
+            }
+        }
+    }
+    legend {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .radio-accordion {
+        border-radius: $borderRadius;
+        border: $lightGrey 1px solid;
+        margin: 30px 0 50px;
+        input[type=radio].accordion {
+            display: none;
+            &+label {
+                border-top: $lightGrey 1px solid;
+                color: $darkGrey;
+                cursor: pointer;
+                display: block;
+                font-size: 14px;
+                letter-spacing: .03em;
+                overflow: auto;
+                padding: 14px 16px 14px 46px;
+                position: relative;
+                @media (max-width: $smallSize), (min-width: $mediumSize) and (max-width: $largeSize) {
+                    .label-text {
+                        display: block;
+                    }
+                }
+                &::before {
+                    border-radius: 50%;
+                    border: $lightGrey 1px solid;
+                    content: "";
+                    height: 18px;
+                    left: 16px;
+                    position: absolute;
+                    top: 12px;
+                    width: 18px;
+                }
+                &+.content-radio-accordion {
+                    background: $lighterGrey;
+                    border-top: $lightGrey 1px solid;
+                    color: $grey;
+                    display: none;
+                    padding: 16px;
+                    &.content-credit-card {
+                        padding: 8px 0 8px 16px;
+                        input,
+                        .mask-input {
+                          font-size: 14px;
+                          margin: 8px 0;
+                        }
+                    }
+                }
+            }
+            &:checked+label {
+                &::before {
+                    border: $lightBlue 7px solid;
+                }
+                &+.content-radio-accordion {
+                    display: block;
+                }
+            }
+        }
+        .wrap-radio-accordion:first-child {
+            input[type=radio].accordion {
+                &+label {
+                    border-top: 0 !important;
+                }
+            }
+        }
+    }
+    .logo-paypal {
+        @include img-insteadof-txt(#{$pathImages}#{$logoPaypal}, 67px, 18px);
+        margin: -2px 0;
+    }
+    .card-visa {
+        @include img-insteadof-txt(#{$pathImages}#{$cardVisa}, 37px, 23px);
+    }
+    .card-mastercard {
+        @include img-insteadof-txt(#{$pathImages}#{$cardMastercard}, 37px, 23px);
+    }
+    .card-amex {
+        @include img-insteadof-txt(#{$pathImages}#{$cardAmex}, 37px, 23px);
+    }
+    .card-discover {
+        @include img-insteadof-txt(#{$pathImages}#{$cardDiscover}, 37px, 23px);
+    }
+    .description-transfer {
+        @include useIcon($icon-arrow-transfer, $lightGrey, 40px);
+        &::before {
+            display: block;
+            margin: 0 0 10px 0;
+            text-align: center;
+        }
+    }
+    [class^="card-"],
+    [class*=" card-"] {
+        float: right;
+        margin-top: -5px;
+        @media (max-width: $smallSize), (min-width: $mediumSize) and (max-width: $largeSize) {
+            margin-top: 5px;
+            float: none;
+        }
+        &.off {
+            filter: grayscale(100%);
+            opacity: .5;
+        }
+    }
+    .textarea-wrap {
+        border-radius: $borderRadius;
+        box-shadow: 0 0 0 1px $lightGrey;
+        color: $grey;
+        margin: 15px 0 40px;
+        padding: 14px 16px;
+        .heading {
+            font-weight: bold;
+        }
+        .placeholder {
+            font-style: italic;
+        }
+        textarea {
+            display: block;
+            margin-top: 10px;
+            min-height: 48px;
+            width: 100%;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+        &.focus {
+            box-shadow: 0 0 0 2px $lightBlue;
+        }
+    }
+    .style-checkbox {
+        display: inline-block;
+        margin-right: 5px;
+        position: relative;
+        vertical-align: middle;
+        input[type=checkbox] {
+            bottom: 0;
+            cursor: pointer;
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            &+.icon-check {
+                &::before {
+                    display: none;
+                    font-size: 12px;
+                }
+            }
+            &:checked+.icon-check {
+                background-color: $lightBlue;
+                border-color: $lightBlue;
+                &::before {
+                    color: $white;
+                    display: block;
+                }
+            }
+        }
+        .icon-check {
+            align-items: center;
+            border-radius: 3px;
+            border: 1px solid $lightGrey;
+            display: flex;
+            height: 15px;
+            justify-content: center;
+            margin: -1px 0 1px;
+            width: 15px;
+            &.big {
+                height: 20px;
+                margin: 0;
+                width: 20px;
+            }
+        }
+    }
+    hr {
+        border-top: 1px solid $lighterGrey;
+        margin: 65px 0 35px;
+    }
+    .area-cta {
+        font-size: 16px;
+        margin-top: 40px;
+        .back {
+            @include useIcon($icon-prev, $darkBlue, 16px);
+            display: none;
+            float: left;
+            margin: 18px 0;
+            &:target {
+                display: block;
+            }
+            &::before {
+                margin-right: 10px;
+            }
+        }
+        input[type=submit],
+        .send {
+            @include useIcon($icon-next, $white, 16px);
+            background-color: $lightBlue;
+            border-radius: $borderRadius;
+            color: $white;
+            cursor: pointer;
+            display: inline-block;
+            float: right;
+            font-size: 18px;
+            padding: 15px 50px 15px 25px;
+            position: relative;
+            &::before {
+                margin: 0;
+                position: absolute;
+                right: 25px;
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+            &:disabled,
+            &.disabled {
+                background-color: $lightGrey;
+                pointer-events: none;
+            }
+        }
+        @media (max-width: $smallSize),
+        (min-width: $mediumSize) and (max-width: $largeSize) {
+            .back,
+            input[type=submit],
+            .send {
+                float: none;
+                width: 100%;
+            }
+        }
+    }
+}

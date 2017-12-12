@@ -1,0 +1,250 @@
+@import "set-icons";
+@import "datas";
+@import "mixins";
+
+.brief-booking {
+    background: $lighterGrey;
+    border-radius: $borderRadius;
+    border: $lightGrey 1px solid;
+    float: right;
+    max-width: $widthColRight;
+    padding: 50px 35px;
+    width: 100%;
+    @media (max-width: $smallSize) {
+        max-width: inherit;
+    }
+    @media (max-width: $mediumSize) {
+        float: none;
+        margin-left: -31px;
+        margin-right: -31px;
+        max-width: inherit;
+        width: calc(100% + 62px);
+    }
+    @media (min-width: $mediumSize) and (max-width: $largeSize) {
+        max-width: $widthReducedColRight;
+    }
+    .date {
+        color: $grey;
+        font-size: 16px;
+        margin-bottom: 16px;
+        &>* {
+            display: inline-block;
+            vertical-align: middle;
+            &:first-child {
+                padding-right: 34px;
+                @media (max-width: $smallSize) {
+                    padding-right: 6px;
+                }
+            }
+            &:last-child {
+                @include useIcon($icon-arrow-dates, $grey, 20px);
+                padding-left: 34px;
+                @media (max-width: $smallSize) {
+                    padding-left: 6px;
+                }
+                position: relative;
+                &::before {
+                    left: 0;
+                    margin: 0;
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    @media (max-width: $smallSize) {
+                        display: none;
+                    }
+                }
+            }
+        }
+        time {
+            color: $darkGrey;
+            display: block;
+            font-size: 20px;
+            @media (max-width: $smallSize), (min-width: $mediumSize) and (max-width: $largeSize) {
+                font-size: 16px;
+            }
+        }
+    }
+    .main-price {
+        color: $grey;
+        margin: 45px 0 35px;
+        .heading {
+            color: $darkGrey;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .amount {
+            color: $green;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        .taxes {
+            &+.note {
+                margin-top: 35px;
+                letter-spacing: .03em;
+            }
+        }
+    }
+    .booking {
+        border-bottom: $lightGrey 1px solid;
+        border-top: $lightGrey 1px solid;
+        margin: 0 -35px;
+        padding: 30px 35px;
+        .selected-room {
+            margin-bottom: 25px;
+            margin: -5px -5px 20px -5px;
+            overflow: auto;
+            padding: 5px;
+            .photo {
+                border: $white 5px solid;
+                box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.6);
+                float: left;
+                height: 105px;
+                margin: 0 20px 5px 0;
+                overflow: hidden;
+                position: relative;
+                width: 105px;
+                img {
+                    left: 50%;
+                    max-height: 100%;
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            .number-room {
+                color: $grey;
+            }
+            .type-room {
+                font-size: 23px;
+                @media (max-width: $smallSize) {
+                    font-size: 18px;
+                }
+            }
+            .number-persons {
+                color: $grey;
+                font-size: 16px;
+            }
+        }
+        .nights {
+            margin-bottom: 20px;
+            .heading {
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .list-nights {
+                background: $white;
+                border-radius: $borderRadius;
+                border: 1px solid $lightGrey;
+                height: 122px;
+                overflow-x: hidden;
+                overflow: auto;
+                font-size: 13px;
+                @media (min-width: $mediumSize) and (max-width: $largeSize) {
+                    font-size: 12px;
+                }
+                .list-nights-table {
+                    display: table;
+                    width: 100%;
+                    &>* {
+                        display: table-row;
+                        &>* {
+                            display: table-cell;
+                            padding: 12px 4px;
+                            &:first-child {
+                                padding-left: 8px;
+                            }
+                            &:last-child {
+                                padding-right: 8px;
+                            }
+                        }
+                        &:nth-child(even) {
+                            background: $lighterGrey;
+                        }
+                        time {
+                            @include useIcon($icon-calendar, $grey, 13px);
+                            padding-left: 28px !important;
+                            position: relative;
+                            &::before {
+                                left: 8px;
+                                position: absolute;
+                                top: 13px;
+                            }
+                            .month {
+                                white-space: nowrap;
+                            }
+                            @media (max-width: $smallSize),
+                            (min-width: $mediumSize) and (max-width: $largeSize) {
+                                .year {
+                                    display: block
+                                }
+                            }
+                        }
+                    }
+                }
+                .scrollbot-inner-parent {
+                    .list-nights-table {
+                        width: calc(100% + 25px);
+                    }
+                }
+            }
+            .scrollbot-inner-parent {
+                .list-nights {
+                    width: calc(100% + 25px);
+                }
+            }
+        }
+        .restrictions,
+        .inclusions {
+            margin: 8px;
+            font-size: 13px;
+        }
+        .inclusions {
+            margin-bottom: 30px;
+        }
+        .purchase-line {
+            border-top: 1px solid $lightGrey;
+            color: $grey;
+            display: flex;
+            padding: 25px 8px;
+            &>* {
+                flex: 1;
+                &:first-child {
+                    flex: 2;
+                }
+                &:last-child {
+                    text-align: right;
+                }
+            }
+            .heading,
+            .price {
+                display: block;
+                font-size: 17px;
+                font-weight: bold;
+            }
+            .heading {
+                color: $darkGrey;
+            }
+        }
+    }
+    .details {
+        color: $grey;
+        font-size: 13px;
+        line-height: 1.35em;
+        padding-top: 30px;
+        p+p {
+            margin-top: 20px;
+        }
+    }
+}
+
+header+.brief-booking {
+    margin-top: -130px;
+    @media (max-width: $mediumSize) {
+        margin-top: 0;
+    }
+    @media (min-width: $mediumSize) and (max-width: $largeSize) {
+        margin-top: -193px;
+    }
+}

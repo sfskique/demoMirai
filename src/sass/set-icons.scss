@@ -1,0 +1,95 @@
+@import "variables-seticons";
+@font-face {
+    font-family: 'seticons';
+    src : url('#{$seticons-font-path}/seticons.eot?6rpzlt');
+    src : url('#{$seticons-font-path}/seticons.eot?6rpzlt#iefix') format('embedded-opentype'),
+    url('#{$seticons-font-path}/seticons.ttf?6rpzlt') format('truetype'),
+    url('#{$seticons-font-path}/seticons.woff?6rpzlt') format('woff'),
+    url('#{$seticons-font-path}/seticons.svg?6rpzlt#seticons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'seticons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-check {
+    &::before {
+        content: $icon-check;
+    }
+}
+
+.icon-dropdown {
+    &::before {
+        content: $icon-dropdown;
+    }
+}
+
+.icon-calendar {
+    &::before {
+        content: $icon-calendar;
+    }
+}
+
+.icon-next {
+    &::before {
+        content: $icon-next;
+    }
+}
+
+.icon-prev {
+    &::before {
+        content: $icon-prev;
+    }
+}
+
+.icon-answer {
+    &::before {
+        content: $icon-answer;
+    }
+}
+
+.icon-info {
+    &::before {
+        content: $icon-info;
+    }
+}
+
+.icon-lock {
+    font-family: 'seticons' !important;
+    &::before {
+        content: $icon-lock;
+    }
+}
+
+.icon-arrow-dates {
+    &::before {
+        content: $icon-arrow-dates;
+    }
+}
+
+.icon-arrow-transfer {
+    &::before {
+        content: $icon-arrow-transfer;
+    }
+}
+
+@for $i from 0 to length($mapIcons) {
+    .#{nth($mapIcons, $i+1)} {
+        &::before {
+            //font-family: 'seticons' !important;
+        }
+    }
+}

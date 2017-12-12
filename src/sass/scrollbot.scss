@@ -1,0 +1,32 @@
+.scrollbot-outer-parent {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 9999999;
+    .scrollbot-inner-parent {
+        box-sizing: content-box;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-right: 25px;
+        width: 100%;
+    }
+    .scrollbot-scrollbar-holder {
+        border-radius: 15px;
+        display: block;
+        height: 100%;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 5px;
+        .scrollbot-scrollbar {
+            background-color: rgb(68, 68, 68);
+            border-radius: 15px;
+            height: 50%;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 5px;
+        }
+    }
+}

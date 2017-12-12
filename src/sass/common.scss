@@ -1,0 +1,77 @@
+@import "set-icons";
+@import "datas";
+@import "mixins";
+
+html {
+    &,
+    & body {
+        height: 100%;
+    }
+    body {
+        color: $darkGrey;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.wrap-layout {
+    border-top: 2px solid $lightBlue;
+    min-height: 100%;
+    overflow: auto;
+    padding: 30px;
+    .layout {
+        display: block;
+        margin: auto;
+        max-width: $maxWidthLayout;
+    }
+}
+
+.info {
+    @include useIcon($icon-info, $grey, 15px);
+    color: $grey;
+    &::before {
+        top: -1px;
+    }
+}
+
+.note {
+    color: $grey;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.scrollbot-scrollbar {
+    background: rgba($darkGrey, .3) !important;
+    cursor: pointer;
+}
+
+.list-tick {
+    margin: 5px 0;
+    li {
+        padding-left: 20px;
+        position: relative;
+        &::before {
+            color: $darkGrey;
+            content: $icon-check;
+            font-family: 'seticons' !important;
+            font-size: 10px;
+            left: 0;
+            position: absolute;
+            top: 3px;
+        }
+        &+li {
+            margin-top: 3px;
+        }
+    }
+}
+
+p+p {
+    margin-top: 1em;
+}
+
+a {
+    color: $darkBlue;
+    text-decoration: none;
+}

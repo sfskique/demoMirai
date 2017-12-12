@@ -1,0 +1,32 @@
+//colors
+$darkBlue: #071e33;
+$lightBlue: #86c3d1;
+$darkGrey: #263036;
+$grey: #8d969b;
+$lightGrey: #d9d9d9;
+$lighterGrey: #f9f9f9;
+$green: #8ac494;
+$red : #e14646;
+$white: #fff;
+
+//measures
+$maxWidthLayout: 1150px;
+$widthColRight: 478px;
+$widthReducedColRight: 420px;
+$widthColLeft: 48.5%;
+$maxWidthColLeft: calc(100% - 500px);
+$widthReducedColLeft: calc(100% - 450px);
+$borderRadius: 3px;
+$smallSize: 480px;
+$mediumSize: 768px;
+$largeSize: 992px;
+
+//images
+$pathImages : "../images/";
+$mainLogo : "logo-welcome-hotels-and-hostels.svg";
+$geotrustCertificate : "geotrust-certificate.svg";
+$logoPaypal : "logo-paypal.svg";
+$cardVisa : "card-visa.svg";
+$cardMastercard : "card-mastercard.svg";
+$cardAmex : "card-amex.svg";
+$cardDiscover : "card-discover.svg";

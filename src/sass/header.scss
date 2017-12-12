@@ -1,0 +1,70 @@
+@import "set-icons";
+@import "datas";
+@import "mixins";
+
+header {
+    align-items: center;
+    display: flex;
+    margin-bottom: 35px;
+    max-width: $maxWidthColLeft;
+    width: $widthColLeft;
+    @media (max-width: $smallSize) {
+        display: block;
+        max-width: inherit;
+        width: inherit;
+    }
+    @media (max-width: $mediumSize) {
+        max-width: inherit;
+        width: inherit;
+    }
+    @media (min-width: $mediumSize) and (max-width: $largeSize) {
+        display: block;
+        max-width: $widthReducedColLeft;
+    }
+    &>* {
+        flex: 1;
+    }
+    .logo-hotel {
+        @include img-insteadof-txt(#{$pathImages}#{$mainLogo}, 153px, 100px);
+    }
+    address {
+        color: $grey;
+        float: right;
+        font-style: normal;
+        strong {
+            color: $darkGrey;
+            font-weight: normal;
+        }
+        @media (max-width: $smallSize),
+        (min-width: $mediumSize) and (max-width: $largeSize) {
+            float: none;
+            margin-top: 15px;
+            text-align: left;
+        }
+    }
+}
+
+.preheader {
+    font-size: 13px;
+    margin-bottom: 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: auto;
+    padding-bottom: 1px;
+    .ssl-certificate-msg {
+        @include useIcon($icon-lock, $lightGrey, 20px);
+        color: $grey;
+        float: right;
+        .geotrust-certificate {
+            @include img-insteadof-txt(#{$pathImages}#{$geotrustCertificate}, 92px, 43px);
+            margin: 0 5px 0 20px;
+        }
+        @media (max-width: $smallSize) {
+            float: none;
+            .geotrust-certificate {
+                display: block;
+                margin: 10px 0 0;
+            }
+        }
+    }
+}
